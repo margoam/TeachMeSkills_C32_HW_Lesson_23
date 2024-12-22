@@ -1,13 +1,15 @@
 package com.teachmeskills.hw.lesson_23.model;
 
-import jakarta.xml.bind.annotation.XmlElement;
-import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.*;
 
 import java.util.List;
 
 @XmlRootElement(name = "library")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Library {
 
+    @XmlElementWrapper
+    @XmlElement(name = "book")
     List<Book> books;
 
     public Library() {}
@@ -16,7 +18,6 @@ public class Library {
         this.books = books;
     }
 
-    @XmlElement(name = "book")
     public List<Book> getBooks() {
         return books;
     }
